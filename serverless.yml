@@ -1,0 +1,16 @@
+service:
+  name: cucumber-chrome-aws
+
+provider:
+  name: aws
+  runtime: java8
+  region: us-east-1
+
+package:
+  artifact: target/aws.lambda-0.0.1-SNAPSHOT.jar
+
+functions:
+  runCucumber:
+    handler: aws.lambda.LambdaEntry::runCucumber
+    timeout: 300
+    memorySize: 512
